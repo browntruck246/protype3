@@ -46,7 +46,7 @@ public class MainServices {
             Statement statement = connection.createStatement();
 
             // Execute a SELECT query
-            String query = "SELECT FIRSTNAME FROM SYSTEM.PERSON";
+            String query = "SELECT * FROM SYSTEM.PERSON";
             ResultSet resultSet = statement.executeQuery(query);
             
             
@@ -56,7 +56,10 @@ public class MainServices {
             	Person person = new Person();
             	
             	person.setFirstName(resultSet.getString("FIRSTNAME"));
-           
+            	person.setLastName(resultSet.getString("LASTNAME"));
+            	person.setBirthDate(resultSet.getString("BIRTHDATE"));
+            	person.setEmail(resultSet.getString("EMAIL"));
+            	person.setPhoneNumber(resultSet.getString("PHONENUMBER"));
             	
             	persons.add(person) ;
             	
